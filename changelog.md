@@ -1,3 +1,36 @@
+### v1.0.0 [view commit logs](https://github.com/marionettejs/backbone.marionette/compare/v1.0.0-rc6...v1.0.0)
+
+* RegionManager
+  * Created new `Marionette.RegionManager` object to manage a set of regions
+
+* Layout
+  * Now uses `Marionette.RegionManager` to manage regions
+  * Now supports dynamic add / remove of regions
+  * Can specify `regions` as a function that takes an `options` argument (the view's constructor options)
+
+* Application
+  * Now uses `Marionette.RegionManager` to manage regions
+
+* Region
+  * Region will call the `close` method on a view, or the `remove` method if `close` is not found, when closing a view
+
+* CollectionView / CompositeView
+  * When specifying `itemViewOptions` as a function, an item `index` argument will be passed as the second parameter
+
+* CompositeView
+  * Fixed a bug that caused an error when the collection was `reset` (loaded) before the view was rendered
+
+* Functions
+  * Removed the `Marionette.createObject` function - it was never used by Marionette, directly
+
+* Code Cleanup
+  * Replaced `that = this` with the `context` param of several calls to `_.each` to clean up the code
+  * Removed an unused method from the CompositeView implementation
+
+* Build process
+  * Updated to Grunt v0.4.x
+  * Added code coverage and other analysis reports
+
 ### v1.0.0-rc6 [view commit logs](https://github.com/marionettejs/backbone.marionette/compare/v1.0.0-rc5...v1.0.0-rc6)
 
 * CompositeView
