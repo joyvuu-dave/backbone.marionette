@@ -13,9 +13,11 @@
 
 * Region
   * Region will call the `close` method on a view, or the `remove` method if `close` is not found, when closing a view
+  * When calling the `show` method with the same view instance multiple times, subsequent calls will only re-render the view and not close / re-open it
 
 * CollectionView / CompositeView
   * When specifying `itemViewOptions` as a function, an item `index` argument will be passed as the second parameter
+  * Will call the `close` or `remove` method when closing a view, with `close` method taking precedence
 
 * CompositeView
   * Fixed a bug that caused an error when the collection was `reset` (loaded) before the view was rendered
@@ -30,6 +32,11 @@
 * Build process
   * Updated to Grunt v0.4.x
   * Added code coverage and other analysis reports
+
+* Backbone.Wreqr
+  * Updated to v0.2.0
+  * Renamed `addHandler` method to `setHandler`
+  * For more information, see the [Wreqr changelog](https://github.com/marionettejs/backbone.wreqr/blob/master/CHANGELOG.md)
 
 ### v1.0.0-rc6 [view commit logs](https://github.com/marionettejs/backbone.marionette/compare/v1.0.0-rc5...v1.0.0-rc6)
 
