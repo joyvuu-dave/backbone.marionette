@@ -181,16 +181,16 @@
     <h1>Code coverage report for <span class='entity'>src/marionette.approuter.js</span></h1>
     <h2>
         
-        Statements: <span class='metric'>100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class='metric'>100% <small>(13 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class='metric'>83.33% <small>(5 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class='metric'>100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class='metric'>100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class='metric'>100% <small>(3 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class='metric'>100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class='metric'>100% <small>(13 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">src/</a> &#187; marionette.approuter.js</div>
@@ -247,23 +247,7 @@
 48
 49
 50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+51</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,47 +268,31 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
-<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">10</span>
-<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
-<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">13</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,7 +309,7 @@
 //
 // App routers can only take one `controller` object. 
 // It is recommended that you divide your controller
-// objects in to smaller peices of related functionality
+// objects in to smaller pieces of related functionality
 // and have multiple routers / controllers, instead of
 // just one giant router and controller.
 //
@@ -350,8 +318,7 @@
 Marionette.AppRouter = Backbone.Router.extend({
 &nbsp;
   constructor: function(options){
-    var args = Array.prototype.slice.apply(arguments);
-    Backbone.Router.prototype.constructor.apply(this, args);
+    Backbone.Router.prototype.constructor.apply(this, slice(arguments));
 &nbsp;
     this.options = options;
 &nbsp;
@@ -364,34 +331,19 @@ Marionette.AppRouter = Backbone.Router.extend({
   // Internal method to process the `appRoutes` for the
   // router, and turn them in to routes that trigger the
   // specified method on the specified `controller`.
-  processAppRoutes: function(controller, appRoutes){
-    var method, methodName;
-    var route, routesLength, i;
-    var routes = [];
-    var router = this;
+  processAppRoutes: function(controller, appRoutes) {
+    var routeNames = _.keys(appRoutes).reverse(); // Backbone requires reverted order of routes
 &nbsp;
-    for(route in appRoutes){
-      <span class="missing-if-branch" title="else path not taken"" >E</span>if (appRoutes.hasOwnProperty(route)){
-        routes.unshift([route, appRoutes[route]]);
-      }
-    }
+    _.each(routeNames, function(route) {
+      var methodName = appRoutes[route];
+      var method = controller[methodName];
 &nbsp;
-    routesLength = routes.length;
-    for (i = 0; i &lt; routesLength; i++){
-      route = routes[i][0];
-      methodName = routes[i][1];
-      method = controller[methodName];
-&nbsp;
-      if (!method){
-        var msg = "Method '" + methodName + "' was not found on the controller";
-        var err = new Error(msg);
-        err.name = "NoMethodError";
-        throw err;
+      if (!method) {
+        throw new Error("Method '" + methodName + "' was not found on the controller");
       }
 &nbsp;
-      method = _.bind(method, controller);
-      router.route(route, methodName, method);
-    }
+      this.route(route, methodName, _.bind(method, controller));
+    }, this);
   }
 });
 &nbsp;
@@ -400,7 +352,7 @@ Marionette.AppRouter = Backbone.Router.extend({
 
 </div>
 <div class='footer'>
-    <div class='meta'>Generated by <a href='http://istanbul-js.org' target='_blank'>istanbul</a> at Tue Mar 12 2013 20:49:16 GMT-0500 (CDT)</div>
+    <div class='meta'>Generated by <a href='http://istanbul-js.org' target='_blank'>istanbul</a> at Wed Mar 27 2013 11:30:52 GMT-0500 (CDT)</div>
 </div>
 </body>
 

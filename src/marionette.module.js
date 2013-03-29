@@ -35,7 +35,7 @@ _.extend(Marionette.Module.prototype, Backbone.Events, {
     this._finalizerCallbacks.add(callback);
   },
 
-  // Start the module, and run all of it's initializers
+  // Start the module, and run all of its initializers
   start: function(options){
     // Prevent re-starting a module that is already started
     if (this._isInitialized){ return; }
@@ -43,11 +43,7 @@ _.extend(Marionette.Module.prototype, Backbone.Events, {
     // start the sub-modules (depth-first hierarchy)
     _.each(this.submodules, function(mod){
       // check to see if we should start the sub-module with this parent
-      var startWithParent = true;
-      startWithParent = mod.startWithParent;
-
-      // start the sub-module
-      if (startWithParent){
+      if (mod.startWithParent){
         mod.start(options);
       }
     });
@@ -101,7 +97,7 @@ _.extend(Marionette.Module.prototype, Backbone.Events, {
       this.app,
       Backbone,
       Marionette,
-      $, _,
+      Marionette.$, _,
       customArgs
     ]);
 
@@ -126,7 +122,7 @@ _.extend(Marionette.Module, {
 
     // get the custom args passed in after the module definition and
     // get rid of the module name and definition function
-    var customArgs = slice.apply(arguments);
+    var customArgs = slice(arguments);
     customArgs.splice(0, 3);
 
     // split the module names and get the length
@@ -189,7 +185,6 @@ _.extend(Marionette.Module, {
 
     // `and` the two together, ensuring a single `false` will prevent it
     // from starting with the parent
-    var tmp = module.startWithParent;
     module.startWithParent = module.startWithParent && startWithParent;
 
     // setup auto-start if needed
