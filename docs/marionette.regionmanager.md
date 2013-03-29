@@ -35,9 +35,12 @@ var rm = new Marionette.RegionManager();
 
 var region = rm.addRegion("foo", "#bar");
 
-var region2 = rm.addRegions({
-  baz: "#baz"
+var regions = rm.addRegions({
+  baz: "#baz",
+  quux: "ul.quux"
 });
+
+regions.baz.show(myView);
 
 rm.removeRegion("foo");
 ```

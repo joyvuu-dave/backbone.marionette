@@ -67,14 +67,14 @@ _.extend(Marionette.Application.prototype, Backbone.Events, {
   module: function(moduleNames, moduleDefinition){
     // slice the args, and add this application object as the
     // first argument of the array
-    var args = slice.call(arguments);
+    var args = slice(arguments);
     args.unshift(this);
 
     // see the Marionette.Module object for more information
     return Marionette.Module.create.apply(Marionette.Module, args);
   },
 
-  // Internal metho to set up the region manager
+  // Internal method to set up the region manager
   _initRegionManager: function(){
     this._regionManager = new Marionette.RegionManager();
 

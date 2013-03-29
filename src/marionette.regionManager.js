@@ -12,7 +12,7 @@ Marionette.RegionManager = (function(Marionette){
 
     // Add multiple regions using an object literal, where
     // each key becomes the region name, and each value is
-    // the region defintion.
+    // the region definition.
     addRegions: function(regionDefinitions, defaults){
       var regions = {};
 
@@ -42,6 +42,8 @@ Marionette.RegionManager = (function(Marionette){
       var hasSelector = !!definition.selector;
 
       if (isString || (isObject && hasSelector)){
+        region = Marionette.Region.buildRegion(definition, Marionette.Region);
+      } else if (_.isFunction(definition)){
         region = Marionette.Region.buildRegion(definition, Marionette.Region);
       } else {
         region = definition;
