@@ -2,7 +2,7 @@
 
 Marionette has a few globally configurable settings that will
 change how the system works. While many of these subjects are covered
-in other docs, this configuration doc should provides a list of the
+in other docs, this configuration doc should provide a list of the
 most common items to change.
 
 ## Documentation Index
@@ -22,7 +22,7 @@ library, you can directly assign these settings:
 
 ```js
 Backbone.$ = myDOMLib;
-Marioentte.$ = myDOMLib;
+Mariоnеtte.$ = myDOMLib;
 ```
 
 Note that you should change both Backbone and Marionette at the same
