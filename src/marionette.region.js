@@ -118,18 +118,24 @@ _.extend(Marionette.Region.prototype, Backbone.Events, {
 
     this.ensureEl();
 
-    if (view !== this.currentView) {
+    var isViewClosed = view.isClosed || _.isUndefined(view.$el);
+
+    var isDifferentView = view !== this.currentView;
+
+    if (isDifferentView) {
       this.close();
-      view.render();
-      this.open(view);
-    } else {
-      view.render();
     }
 
-    Marionette.triggerMethod.call(view, "show");
-    Marionette.triggerMethod.call(this, "show", view);
+    view.render();
 
+    if (isDifferentView || isViewClosed) {
+      this.open(view);
+    }
+    
     this.currentView = view;
+
+    Marionette.triggerMethod.call(this, "show", view);
+    Marionette.triggerMethod.call(view, "show");
   },
 
   ensureEl: function(){
