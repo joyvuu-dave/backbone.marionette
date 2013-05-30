@@ -1,3 +1,26 @@
+### v1.0.3 [view commit logs](https://github.com/marionettejs/backbone.marionette/compare/v1.0.1...v1.0.3)
+
+* ItemView
+  * Deleted unneeded `constructor` function - it added nothing and didn't need to be there
+
+* CompositeView
+  * Added `index` parameter to method signature, to show that is is available
+  * Deleted uneeeded `constructor` function and removed call to `getItemView` as it was causing problems and was not needed in the constructor.
+
+* All Views
+  * Fixed a bug in the entity and collection event bindings, where `stopListening` would not unbind the event handlers
+
+* Renderer / All Views
+  * The `Renderer.render` method will throw a more meaningful error if the supplied template is falsey
+
+* Region
+  * Re-showing a closed view now works by re-rendering and re-inserting the view in to the DOM
+  * Region will trigger a `show` event when showing a view (updated the code to work like the docs already said)
+  * Set the `currentView` before triggering the `show` events from the region / view
+
+* RegionManager
+  * Fixed a bug to decrement the `.length` when a region is removed
+
 ### v1.0.2 [view commit logs](https://github.com/marionettejs/backbone.marionette/compare/v1.0.1...v1.0.2)
 
 * UI Elements
